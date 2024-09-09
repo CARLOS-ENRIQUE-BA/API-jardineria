@@ -121,3 +121,6 @@ Este proyecto implementa un sistema CRUD para gestionar productos y pedidos usan
 1. **Instalación de dependencias**:
    ```bash
    npm install
+2. **Ejecutar el programa**:
+   ```bash
+   npm run start:dev
