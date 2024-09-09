@@ -1,0 +1,123 @@
+# CRUD de Pedidos y Productos
+
+Este proyecto implementa un sistema CRUD para gestionar productos y pedidos usando Node.js con Express y una base de datos MySQL.
+
+## Rutas
+
+### Productos
+
+- **GET /products**
+  - **Descripción**: Obtiene todos los productos.
+  - **Respuesta Exitoso**: `200 OK` con una lista de productos.
+  - **Respuesta de Error**: `500 Internal Server Error` si ocurre un error.
+
+- **GET /products/:id**
+  - **Descripción**: Obtiene un producto por su ID.
+  - **Respuesta Exitoso**: `200 OK` con los detalles del producto.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el producto.
+  
+- **POST /products**
+  - **Descripción**: Crea un nuevo producto.
+  - **Cuerpo de la Solicitud**:
+    ```json
+    {
+      "nombre": "string",
+      "descripcion": "string",
+      "precio": "number",
+      "stock": "number"
+    }
+    ```
+  - **Respuesta Exitoso**: `201 Created` con los detalles del producto creado.
+  - **Respuesta de Error**: `500 Internal Server Error` si ocurre un error.
+
+- **PUT /products/:id**
+  - **Descripción**: Actualiza un producto existente por su ID.
+  - **Cuerpo de la Solicitud**:
+    ```json
+    {
+      "nombre": "string",
+      "descripcion": "string",
+      "precio": "number",
+      "stock": "number"
+    }
+    ```
+  - **Respuesta Exitoso**: `200 OK` con los detalles del producto actualizado.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el producto.
+
+- **DELETE /products/:id**
+  - **Descripción**: Elimina un producto por su ID.
+  - **Respuesta Exitoso**: `200 OK` si la eliminación fue exitosa.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el producto.
+
+### Pedidos
+
+- **GET /orders**
+  - **Descripción**: Obtiene todos los pedidos.
+  - **Respuesta Exitoso**: `200 OK` con una lista de pedidos.
+  - **Respuesta de Error**: `500 Internal Server Error` si ocurre un error.
+
+- **GET /orders/:id**
+  - **Descripción**: Obtiene un pedido por su ID.
+  - **Respuesta Exitoso**: `200 OK` con los detalles del pedido.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el pedido.
+
+- **POST /orders**
+  - **Descripción**: Crea un nuevo pedido.
+  - **Cuerpo de la Solicitud**:
+    ```json
+    {
+      "producto": "string",
+      "cantidad": "number",
+      "precio": "number",
+      "estado": "string"
+    }
+    ```
+  - **Respuesta Exitoso**: `201 Created` con los detalles del pedido creado.
+  - **Respuesta de Error**: `500 Internal Server Error` si ocurre un error.
+
+- **PUT /orders/:id**
+  - **Descripción**: Actualiza un pedido existente por su ID.
+  - **Cuerpo de la Solicitud**:
+    ```json
+    {
+      "producto": "string",
+      "cantidad": "number",
+      "precio": "number",
+      "estado": "string"
+    }
+    ```
+  - **Respuesta Exitoso**: `200 OK` con los detalles del pedido actualizado.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el pedido.
+
+- **DELETE /orders/:id**
+  - **Descripción**: Elimina un pedido por su ID.
+  - **Respuesta Exitoso**: `200 OK` si la eliminación fue exitosa.
+  - **Respuesta de Error**: `404 Not Found` si no se encuentra el pedido.
+
+## Tablas
+
+### Producto
+
+- **Tabla**: `products`
+- **Columnas**:
+  - `id` (INT, PK, AUTO_INCREMENT)
+  - `nombre` (VARCHAR)
+  - `descripcion` (TEXT)
+  - `precio` (DECIMAL)
+  - `stock` (INT)
+
+### Pedido
+
+- **Tabla**: `orders`
+- **Columnas**:
+  - `id` (INT, PK, AUTO_INCREMENT)
+  - `producto` (VARCHAR)
+  - `cantidad` (INT)
+  - `precio` (DECIMAL)
+  - `estado` (VARCHAR)
+
+## Configuración
+
+1. **Instalación de dependencias**:
+   ```bash
+   npm install
